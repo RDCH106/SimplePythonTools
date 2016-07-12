@@ -7,7 +7,7 @@ import os
 
 from common import bcolors
 
-def ping_network(network=None):
+def pingNetwork(network=None):
 
     if network == None:
         # Prompt the user to input a network address
