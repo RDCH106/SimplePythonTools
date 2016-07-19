@@ -26,9 +26,9 @@ def askFor(request, nOptions):
 
 def pressKey():
     if (sys.version_info > (3, 0)):
-        wait = input("\n\nPress any key to continue . . .")
+        wait = input("\n\nPress Enter to continue . . .")
     else:
-        wait = raw_input("\n\nPress any key to continue . . .")
+        wait = raw_input("\n\nPress Enter to continue . . .")
 
 class bcolors:
     HEADER = '\033[95m'
