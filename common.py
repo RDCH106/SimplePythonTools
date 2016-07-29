@@ -30,6 +30,14 @@ def pressKey():
     else:
         wait = raw_input("\n\nPress Enter to continue . . .")
 
+def countLines(file):
+    try:
+        return sum(1 for line in open(file))
+    except FileNotFoundError:
+        print("File Not Found")
+    finally:
+        return 0
+
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
