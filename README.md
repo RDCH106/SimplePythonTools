@@ -22,6 +22,7 @@ Simple Python Tools is compatible with Python 2 and Python 3. The support for Py
 - `function` cleanScreen
 - `function` askFor
 - `function` pressKey
+- `function` countLines
 - `class` bcolors
 
 ### Ping Network Module
