@@ -34,7 +34,7 @@ def countLines(file):
     count = 0
     try:
         count = sum(1 for line in open(file))
-    except FileNotFoundError:
+    except IOError:
         print("File Not Found!")
     finally:
         return count
