@@ -2,6 +2,7 @@
 Python Toolset
 
 [![Build Status](https://travis-ci.org/RDCH106/SimplePythonTools.svg?branch=master)](https://travis-ci.org/RDCH106/SimplePythonTools)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0de7fa652b1843ed85f2a1bc9d414b7f)](https://www.codacy.com/app/RDCH106/SimplePythonTools?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=RDCH106/SimplePythonTools&amp;utm_campaign=Badge_Grade)
 
 ## Requeriments
 
