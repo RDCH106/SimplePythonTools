@@ -19,7 +19,7 @@ def askFor(request, nOptions):
                 break
             else:
                 print("Out of range. Try again")
-        except:
+        except ValueError:
             print("Introduced value is not a number")
 
     return option_selected
@@ -27,9 +27,9 @@ def askFor(request, nOptions):
 
 def pressKey():
     if (sys.version_info > (3, 0)):
-        wait = input("\n\nPress Enter to continue . . .")
+        input("\n\nPress Enter to continue . . .")
     else:
-        wait = raw_input("\n\nPress Enter to continue . . .")
+        raw_input("\n\nPress Enter to continue . . .")
 
 def countLines(file):
     count = 0
@@ -37,8 +37,7 @@ def countLines(file):
         count = sum(1 for line in open(file))
     except IOError:
         print("File Not Found!")
-    finally:
-        return count
+    return count
 
 if os.name == 'nt' and platform.release() == '10' and platform.version() >= '10.0.14393':
     # Fix ANSI color in Windows 10 version 10.0.14393 (Windows Anniversary Update)

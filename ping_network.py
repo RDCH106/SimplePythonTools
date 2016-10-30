@@ -5,7 +5,7 @@ import ipaddress
 import sys
 import os
 
-from common import bcolors
+from common import bcolors, pressKey
 
 def pingNetwork(network=None):
 
@@ -22,13 +22,10 @@ def pingNetwork(network=None):
         try:
             ip_net = ipaddress.ip_network(net_addr, strict=False)
             # print(ip_net)
-        except:
+        except ValueError:
             print(
                 "\nEl valor " + bcolors.FAIL + net_addr + bcolors.ENDC + " no parece ser un formato de red IPv4 o IPv6\n")
-            if (sys.version_info > (3, 0)):
-                wait = input("\nPress any key to continue . . .")
-            else:
-                wait = raw_input("\nPress any key to continue . . .")
+            pressKey()
             return None
 
     else:
