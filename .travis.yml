@@ -9,4 +9,4 @@ python:
 install: "pip install -r requirements.txt"
 # command to run tests
 script:
-  - "python ./.travis/jsonManager/jsonManager_test0.py"
+  - "cd .travis/jsonManager && python jsonManager_test0.py"
