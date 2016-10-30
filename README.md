@@ -1,6 +1,8 @@
 # Simple-Python-Tools
 Python Toolset
 
+[![Build Status](https://travis-ci.org/RDCH106/SimplePythonTools.svg?branch=master)](https://travis-ci.org/RDCH106/SimplePythonTools)
+
 ## Requeriments
 
 Simple Python Tools is compatible with Python 2 and Python 3. The support for Python 2 will be deprecated in future releases and it is recommendable migrate to Python 3.
