@@ -46,7 +46,7 @@ class JsonManager(object):
         Prints json Manager ID to the display.
         """
         print(self._name)
-        return
+        return None
 
     """
     Print all methods
@@ -54,7 +54,7 @@ class JsonManager(object):
     @classmethod
     def print_methods(self):
         print(inspect.getmembers(self, predicate=inspect.ismethod))
-        return
+        return None
 
     """
     Test function
@@ -63,7 +63,7 @@ class JsonManager(object):
     def test(self):
         print("Test")
         print(inspect.getmembers(self, predicate=inspect.ismethod))
-        return
+        return None
 
     """
     set_key_array
@@ -72,7 +72,7 @@ class JsonManager(object):
     def set_key_array(self, key_array = _key_array):
         print("Setting keys: %s" % list(key_array) )
         _key_array = key_array
-        return
+        return None
 
     """
     set_input_path
@@ -83,7 +83,7 @@ class JsonManager(object):
             input_path = self.input_path
         print("Setting input path: %s" % input_path)
         self._input_path = input_path
-        return
+        return None
 
     """
     set_output_path
@@ -94,7 +94,7 @@ class JsonManager(object):
             output_path = self.output_path
         print("Setting output path: %s" % output_path)
         self._output_path = output_path
-        return
+        return None
 
     """
     set_process_function
@@ -103,7 +103,7 @@ class JsonManager(object):
     def set_process_function(self, function_callback = None):
         print("Setting process function: %s" % function_callback)
         self._function_callback = function_callback
-        return
+        return None
 
     """
     process_function_default
@@ -115,7 +115,7 @@ class JsonManager(object):
         else:
             print("Calling external process function")
             self._function_callback(*arg)
-        return
+        return None
 
     """
     print_json_value
@@ -142,7 +142,7 @@ class JsonManager(object):
         print("Json contains keys: %s" % list(json_data))
         for key, value in json_data.items():
             print("Key: %s with value: %s" % (key, value))
-        return
+        return None
 
     """
     print_all_json_values_in_an_array
@@ -157,7 +157,7 @@ class JsonManager(object):
             for key, value in json_data.items():
                 print("Array: %d has a Key: %s with value: %s" % (array_index, key, value))
             array_index += 1
-        return
+        return None
 
     """
     print_arraykey_json_values
@@ -172,7 +172,7 @@ class JsonManager(object):
         for key in array_key:
             value = json_data[key]
             print("Key: %s with value: %s" % (key, value))
-        return
+        return None
 
     """
     Read json
@@ -204,7 +204,7 @@ class JsonManager(object):
         full_destination_name = os.path.join(self._output_path, file_name)
         with open(full_destination_name, 'w') as outfile:
             json.dump(json_data, outfile, sort_keys=False)
-        return
+        return None
 
     """
     Get value from json
@@ -314,7 +314,7 @@ class JsonManager(object):
                 print("File: %s will process, it has extension: %s" % (basefilename, file_extension))
             successful, json_data = self.read_json_from_file(filename)
             self.process_function(successful, json_data)
-        return
+        return None
     """
     process_all_files_in_folders: Require initialize process_function with set_process_function
     """
@@ -335,4 +335,4 @@ class JsonManager(object):
                     successful, json_data = self.read_json_from_file(filename)
                     #print(successful)
                     self.process_function(successful, json_data)
-        return
+        return None
