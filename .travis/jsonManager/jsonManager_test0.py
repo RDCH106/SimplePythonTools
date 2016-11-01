@@ -35,7 +35,7 @@ def try_read_wrong_file():
     parser = JsonManager('parser')
     # Try to parse wrong file
     successful, json_data = parser.read_json_from_file("wrong_file.json")
-    print("successful? %s" % successful)
+    print("successful? %s with data: %s" % (successful, json_data))
     print("==================================================================")
     return
 
@@ -153,7 +153,7 @@ def try_edit_file_with_list():
 
     # Create instance
     parser = JsonManager('parser')
-    input_path = os.path.join(full_path_name, "input")
+    os.path.join(full_path_name, "input")
 
     json_values_array = []
     json_values_array.append(["a", "new a value"])
@@ -193,12 +193,6 @@ def initialize():
     dst_file = os.path.join(full_path_name, "input/test.json")
     copyfile(src_file, dst_file)
     print("initialize done!\n")
-    return
-
-def abort_exe( str ):
-    print( str )
-    print("Aborting...")
-    sys.exit(0)
     return
 
 if __name__ == '__main__':
