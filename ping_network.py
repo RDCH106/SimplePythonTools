@@ -55,32 +55,32 @@ def pingNetwork(network=None):
 
     # For each IP address in the subnet,
     # run the ping command with subprocess.popen interface
-    for i in range(len(all_hosts)):
+    for host in all_hosts:
 
         if os.name == 'nt':
-            output = subprocess.Popen(['ping', '-n', '1', '-w', '5000', str(all_hosts[i])], stdout=subprocess.PIPE,
+            output = subprocess.Popen(['ping', '-n', '1', '-w', '5000', str(host)], stdout=subprocess.PIPE,
                                     startupinfo=info).communicate()[0]
         else:
-            output = subprocess.Popen(['ping', '-c', '1', '-W', '5', str(all_hosts[i])], stdout=subprocess.PIPE).communicate()[0]
+            output = subprocess.Popen(['ping', '-c', '1', '-W', '5', str(host)], stdout=subprocess.PIPE).communicate()[0]
 
         #print(output)
         if "destination host unreachable" in output.decode('utf-8', errors='ignore').lower() or "host de destino inaccesible" in output.decode('utf-8', errors='ignore').lower():
             if network == None:
-                print(str(all_hosts[i]) + " : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
+                print(str(host) + " : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
             else:
                 print("[ " + str(network) + " ] : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
         elif "request timed out" in output.decode('utf-8', errors='ignore').lower() or "tiempo de espera agotado" in output.decode('utf-8', errors='ignore').lower():
             if network == None:
-                print(str(all_hosts[i]) + " : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
+                print(str(host) + " : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
             else:
                 print("[ " + str(network) + " ] : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
         elif "100% loss" in output.decode('utf-8', errors='ignore').lower() or "100% perdidos" in output.decode('utf-8', errors='ignore').lower() or "100% packet loss" in output.decode('utf-8', errors='ignore').lower():
             if network == None:
-                print(str(all_hosts[i]) + " : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
+                print(str(host) + " : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
             else:
                 print("[ " + str(network) + " ] : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
         else:
             if network == None:
-                print(str(all_hosts[i]) + " : " + bcolors.OKGREEN + "Online" + bcolors.ENDC)
+                print(str(host) + " : " + bcolors.OKGREEN + "Online" + bcolors.ENDC)
             else:
                 print("[ " + str(network) + " ] : " + bcolors.OKGREEN + "Online" + bcolors.ENDC)
