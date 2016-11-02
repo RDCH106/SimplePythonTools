@@ -5,7 +5,8 @@ import collections
 import pathlib
 import inspect
 
-"""This python 3 class will manager json individually for you.
+"""
+This python 3 class will manager json individually for you.
 
 To generate HTML documentation for this module issue the command:
 
