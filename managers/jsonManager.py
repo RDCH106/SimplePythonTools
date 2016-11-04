@@ -71,7 +71,7 @@ class JsonManager(object):
     @classmethod
     def set_key_array(self, key_array):
         print("Setting keys: %s" % list(key_array) )
-        _key_array = key_array
+        self._key_array = key_array
         return None
 
     """
