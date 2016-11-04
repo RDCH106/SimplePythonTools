@@ -114,7 +114,7 @@ class JsonManager(object):
             print("Default process... overload call with set_process_function!")
         else:
             print("Calling external process function")
-            self._function_callback(*arg)
+            self._function_callback(arg)
         return None
 
     """
