@@ -125,28 +125,6 @@ def try_create_file_from_csv_with_title():
     print("==================================================================")
     return
 
-def try_process_all_files_in_all_folder():
-    print("== try_process_with_external_function ===========================================")
-    # Create instance
-    parser = JsonManager('parser')
-    input_path = os.path.join(full_path_name, "input/")
-
-    parser.set_process_function(external_process_key)
-    parser.process_all_files_in_folders(input_path, True, True)
-    print("==================================================================")
-    return
-
-def try_process_all_files_in_a_folder():
-    print("== try_process_with_external_function2 ===========================================")
-    # Create instance
-    parser = JsonManager('parser')
-    input_path = os.path.join(full_path_name, "input/folder2")
-
-    parser.set_process_function(external_process_key)
-    parser.process_all_files(input_path, True)
-    print("==================================================================")
-    return
-
 def try_edit_file_with_list():
     print("== try_edit_without_copy ===========================================")
     filename = "test.json"
@@ -207,8 +185,6 @@ if __name__ == '__main__':
     try_create_file_from_list()
     try_create_file_from_csv()
     try_create_file_from_csv_with_title()
-    try_process_all_files_in_all_folder()
-    try_process_all_files_in_a_folder()
     try_edit_file_with_list()
 
     # parser.print_methods()
