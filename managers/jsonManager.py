@@ -71,7 +71,7 @@ class JsonManager(object):
     @classmethod
     def set_key_array(self, key_array):
         print("Setting keys: %s" % list(key_array) )
-        _key_array = key_array
+        self._key_array = key_array
         return None
 
     """
@@ -94,27 +94,6 @@ class JsonManager(object):
             output_path = self.output_path
         print("Setting output path: %s" % output_path)
         self._output_path = output_path
-        return None
-
-    """
-    set_process_function
-    """
-    #@classmethod
-    def set_process_function(self, function_callback = None):
-        print("Setting process function: %s" % function_callback)
-        self._function_callback = function_callback
-        return None
-
-    """
-    process_function_default
-    """
-    @classmethod
-    def process_function(self, *arg):
-        if(self._function_callback == None):
-            print("Default process... overload call with set_process_function!")
-        else:
-            print("Calling external process function")
-            self._function_callback(*arg)
         return None
 
     """
@@ -301,38 +280,3 @@ class JsonManager(object):
                 print("Changing key: %s with value: %s" % (key, value))
                 json_data[key] = value
         return successful, json_data
-
-    """
-    process_all_files: Require initialize process_function with set_process_function
-    """
-    @classmethod
-    def process_all_files(self, path, print_files = False):
-        self.set_input_path(path)
-        for filename in os.listdir(path):
-            basefilename, file_extension = os.path.splitext(filename)
-            if print_files == True:
-                print("File: %s will process, it has extension: %s" % (basefilename, file_extension))
-            successful, json_data = self.read_json_from_file(filename)
-            self.process_function(successful, json_data)
-        return None
-    """
-    process_all_files_in_folders: Require initialize process_function with set_process_function
-    """
-    @classmethod
-    def process_all_files_in_folders(self, path, print_folders = False, print_files = False):
-        for root, directories, filenames in os.walk(path):
-            print("Processing with root path: %s" % root)
-            for directory in directories:
-                if print_folders == True:
-                    print("Checking folder: %s" % directory)
-                    print("\n")
-                current_dir = os.path.join(path, directory)
-                self.set_input_path(current_dir)
-                for filename in os.listdir(os.path.join(path, directory)):
-                    basefilename, file_extension = os.path.splitext(filename)
-                    if print_files == True:
-                        print("File: %s will process" % basefilename)
-                    successful, json_data = self.read_json_from_file(filename)
-                    #print(successful)
-                    self.process_function(successful, json_data)
-        return None
