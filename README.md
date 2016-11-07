@@ -31,3 +31,7 @@ Simple Python Tools is compatible with Python 2 and Python 3. The support for Py
 ### Ping Network Module
 
 - `function` pingNetwork
+
+### Managers
+
+- JSON Manager
