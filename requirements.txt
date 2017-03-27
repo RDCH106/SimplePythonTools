@@ -1,2 +1,2 @@
-ipaddress
+ipaddress ; python_version < '3'
 pathlib
