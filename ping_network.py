@@ -51,8 +51,6 @@ def pingNetwork(network=None, stdout=True):
         info.dwFlags |= subprocess.STARTF_USESHOWWINDOW
         info.wShowWindow = subprocess.SW_HIDE
 
-    print("")
-
     # For each IP address in the subnet,
     # run the ping command with subprocess.popen interface
     for host in all_hosts:
