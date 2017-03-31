@@ -65,32 +65,32 @@ def pingNetwork(network=None, stdout=True):
         if "destination host unreachable" in output.decode('utf-8', errors='ignore').lower() or "host de destino inaccesible" in output.decode('utf-8', errors='ignore').lower():
             if network == None:
                 if stdout:
-                    print(str(host) + " : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
+                    print("\n" + str(host) + " : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
             else:
                 if stdout:
                     print("[ " + str(network) + " ] : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
-            return False
+                return False
         elif "request timed out" in output.decode('utf-8', errors='ignore').lower() or "tiempo de espera agotado" in output.decode('utf-8', errors='ignore').lower():
             if network == None:
                 if stdout:
-                    print(str(host) + " : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
+                    print("\n" + str(host) + " : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
             else:
                 if stdout:
                     print("[ " + str(network) + " ] : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
-            return False
+                return False
         elif "100% loss" in output.decode('utf-8', errors='ignore').lower() or "100% perdidos" in output.decode('utf-8', errors='ignore').lower() or "100% packet loss" in output.decode('utf-8', errors='ignore').lower():
             if network == None:
                 if stdout:
-                    print(str(host) + " : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
+                    print("\n" + str(host) + " : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
             else:
                 if stdout:
                     print("[ " + str(network) + " ] : " + bcolors.FAIL + "Offline" + bcolors.ENDC)
-            return False
+                return False
         else:
             if network == None:
                 if stdout:
-                    print(str(host) + " : " + bcolors.OKGREEN + "Online" + bcolors.ENDC)
+                    print("\n" + str(host) + " : " + bcolors.OKGREEN + "Online" + bcolors.ENDC)
             else:
                 if stdout:
                     print("[ " + str(network) + " ] : " + bcolors.OKGREEN + "Online" + bcolors.ENDC)
-            return True
+                return True
