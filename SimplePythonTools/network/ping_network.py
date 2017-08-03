@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 
-import subprocess
-import ipaddress
-import sys
 import os
+import subprocess
+import sys
 
-from common import bcolors, pressKey
+import ipaddress
+
+from SimplePythonTools.common import bcolors, pressKey
+
 
 def pingNetwork(network=None, stdout=True):
 
